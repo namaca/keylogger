@@ -20,7 +20,7 @@ Open cmd as admin
 cd C:\Python312\Scripts
 pip install pyinstaller
 
-pyinstaller --onefile --noconsole your/file/path/here.py
+pyinstaller --onefile --noconsole your\file\path\here.py
 ```
 
 .exe file will be placed under C:\Python312\Scripts\dist
