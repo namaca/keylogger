@@ -1,8 +1,10 @@
 # keylogger
-A python-based keylogger for windows
+A python-based keylogger for windows.
+
+the default directory of the logging file is C:\Users\user\Documents but it can be changed in keylogger.py (see the code for more info)
 
 
-# Installation 
+## Installation 
 
 ```
 pip install pynput
